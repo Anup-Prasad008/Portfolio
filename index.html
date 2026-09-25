@@ -1044,8 +1044,13 @@ body.night .hero {
     transform-style:
         preserve-3d;
 
+    /* Static 3D angle — no pointer/hover movement */
+    transform:
+        rotateX(7deg)
+        rotateY(-10deg);
+
     transition:
-        transform .18s cubic-bezier(.2,.75,.2,1);
+        none;
 
 }
 
@@ -3475,6 +3480,48 @@ body.night .holo {
 
 
 /* =========================================================
+   JUSTIFIED BODY TEXT
+========================================================= */
+
+.hero .description,
+.about-card p,
+.text-content > p:not(.kicker),
+.skill-card p,
+.project-body p,
+.timeline-card p,
+.contact-copy > p,
+.footer-brand p,
+.detail span:last-child,
+.form small {
+
+    text-align: justify;
+    text-justify: inter-word;
+    overflow-wrap: anywhere;
+
+}
+
+
+/* Keep short UI labels and navigation naturally aligned */
+
+.kicker,
+.hero-greeting,
+.hero .role,
+.section-head,
+.section-head > p,
+.btn,
+.socials,
+.tags,
+.project-body > a,
+.contact-links,
+.footer-col,
+.copyright {
+
+    overflow-wrap: anywhere;
+
+}
+
+
+/* =========================================================
    TABLET
 ========================================================= */
 
@@ -3540,10 +3587,9 @@ body.night .holo {
     .container {
 
         width:
-            min(
-                100% - 30px,
-                560px
-            );
+            calc(100% - 30px);
+        max-width:
+            560px;
 
     }
 
@@ -3642,7 +3688,11 @@ body.night .holo {
             center;
 
         font-size:
-            3.25rem;
+            clamp(2.45rem, 11vw, 3.25rem);
+        line-height:
+            0.98;
+        letter-spacing:
+            -2.2px;
 
     }
 
@@ -3699,7 +3749,7 @@ body.night .holo {
     .scene {
 
         width:
-            350px;
+            min(350px, 92vw);
 
     }
 
@@ -3844,6 +3894,309 @@ body.night .holo {
 
     }
 
+
+    /* Prevent small screens from causing horizontal overflow */
+
+    img,
+    svg,
+    canvas,
+    video {
+
+        max-width:
+            100%;
+
+    }
+
+    .nav-inner {
+
+        gap:
+            10px;
+
+    }
+
+    .logo {
+
+        font-size:
+            clamp(1.1rem, 5vw, 1.45rem);
+        white-space:
+            nowrap;
+
+    }
+
+    .scene-wrap {
+
+        width:
+            100%;
+        overflow:
+            visible;
+
+    }
+
+    .holo {
+
+        width:
+            min(60%, 220px);
+        max-width:
+            220px;
+
+    }
+
+    .photo-box {
+
+        left:
+            12px;
+        right:
+            12px;
+        top:
+            42px;
+        bottom:
+            36px;
+
+    }
+
+    .section-head > p,
+    .hero .description {
+
+        text-align:
+            justify;
+
+    }
+
+    .form {
+
+        padding:
+            22px;
+
+    }
+
+}
+
+
+/* =========================================================
+   SMALL PHONES
+========================================================= */
+
+@media(max-width:480px){
+
+    .container {
+
+        width:
+            calc(100% - 22px);
+
+    }
+
+    .hero {
+
+        padding:
+            92px 0 42px;
+
+    }
+
+    .hero-grid {
+
+        gap:
+            6px;
+
+    }
+
+    .hero h1 {
+
+        font-size:
+            clamp(2.15rem, 12vw, 2.7rem);
+        letter-spacing:
+            -1.8px;
+
+    }
+
+    .hero .role {
+
+        font-size:
+            0.98rem;
+
+    }
+
+    .hero .description {
+
+        font-size:
+            0.91rem;
+        line-height:
+            1.7;
+
+    }
+
+    .hero-buttons {
+
+        gap:
+            9px;
+
+    }
+
+    .section {
+
+        padding:
+            58px 0;
+
+    }
+
+    .about-card,
+    .form,
+    .timeline-card,
+    .project-body,
+    .fact {
+
+        padding:
+            19px;
+
+    }
+
+    .about-card h2,
+    .text-content h2,
+    .section-head h2,
+    .contact-copy h2 {
+
+        font-size:
+            clamp(2rem, 10vw, 2.35rem);
+
+    }
+
+    .scene-wrap {
+
+        height:
+            330px;
+
+    }
+
+    .scene {
+
+        width:
+            min(310px, 94vw);
+
+    }
+
+    .holo {
+
+        border-radius:
+            20px;
+
+    }
+
+    .holo-top,
+    .holo-bottom {
+
+        left:
+            12px;
+        right:
+            12px;
+        font-size:
+            0.53rem;
+
+    }
+
+    .holo-bottom {
+
+        gap:
+            4px;
+
+    }
+
+    .holo-bottom span {
+
+        padding:
+            5px 6px;
+
+    }
+
+    .badge {
+
+        font-size:
+            0.56rem;
+        padding:
+            7px 8px;
+
+    }
+
+    .badge.one {
+
+        left:
+            -5%;
+
+    }
+
+    .badge.two {
+
+        right:
+            -5%;
+
+    }
+
+    .badge.three {
+
+        left:
+            0;
+
+    }
+
+    .visual {
+
+        height:
+            175px;
+
+    }
+
+    .newsletter input {
+
+        font-size:
+            0.78rem;
+
+    }
+
+}
+
+@media(max-width:360px){
+
+    .container {
+
+        width:
+            calc(100% - 18px);
+
+    }
+
+    .hero h1 {
+
+        font-size:
+            2.05rem;
+
+    }
+
+    .scene-wrap {
+
+        height:
+            300px;
+
+    }
+
+    .scene {
+
+        width:
+            min(285px, 96vw);
+
+    }
+
+    .badge {
+
+        display:
+            none;
+
+    }
+
+    .holo-top,
+    .holo-bottom {
+
+        font-size:
+            0.48rem;
+
+    }
+
 }
 
 
@@ -3883,6 +4236,7 @@ body.night .holo {
 .profile-image {
     width: 100%;
     height: 100%;
+    max-width: 100%;
     object-fit: contain;
     object-position: center bottom;
 
@@ -3894,9 +4248,42 @@ body.night .holo {
             rgba(0,0,0,0.20)
         );
 
-    transition:
-        opacity 0.3s ease;
+    /* Profile image is completely static */
+    animation: none !important;
+    transform: none !important;
+    transition: none !important;
 }
+
+.profile-image:hover {
+    animation: none !important;
+    transform: none !important;
+    transition: none !important;
+}
+
+
+/* Final layout refinements */
+.badge, .badge.one, .badge.two, .badge.three {
+    display: none !important;
+}
+
+@media (min-width: 981px) {
+    .container {
+        width: min(1080px, calc(100% - 96px));
+    }
+}
+
+@media (min-width: 681px) and (max-width: 980px) {
+    .container {
+        width: min(100% - 64px, 920px);
+    }
+}
+
+@media (max-width: 680px) {
+    .container {
+        width: min(calc(100% - 30px), 560px);
+    }
+}
+
 </style>
 </head>
 
@@ -4224,36 +4611,7 @@ body.night .holo {
 
 
             </div>
-
-
-            <div class="badge one">
-
-                <b>⌘</b>
-
-                Creative Developer
-
-            </div>
-
-
-            <div class="badge two">
-
-                <b>✍</b>
-
-                Author & Learner
-
-            </div>
-
-
-            <div class="badge three">
-
-                <b>3D</b>
-
-                Interactive UI
-
-            </div>
-
-
-        </div>
+</div>
 
     </div>
 
@@ -5675,110 +6033,15 @@ document
 
 /* =========================================================
    3D HERO
-   IMPORTANT:
-   PHOTO AREA IS EXCLUDED FROM MOUSE ANIMATION.
+   Profile image / hero scene is static.
 ========================================================= */
 
-const scene =
-    document.getElementById(
-        "scene"
-    );
+const scene = document.getElementById("scene");
 
-
-const photoBox =
-    document.getElementById(
-        "photoBox"
-    );
-
-
-let targetX = -10;
-let targetY = 7;
-
-let currentX = -10;
-let currentY = 7;
-
-
-window.addEventListener(
-    "pointermove",
-    event => {
-
-        if (
-            window.innerWidth < 900
-        ) {
-
-            return;
-
-        }
-
-
-        /*
-           Photo par cursor jaane ke baad
-           hero scene movement freeze.
-        */
-
-        if (
-            event.target.closest(
-                "#photoBox"
-            )
-        ) {
-
-            return;
-
-        }
-
-
-        const mouseX =
-            event.clientX /
-            window.innerWidth -
-            0.5;
-
-
-        const mouseY =
-            event.clientY /
-            window.innerHeight -
-            0.5;
-
-
-        targetY =
-            7 -
-            mouseY * 10;
-
-
-        targetX =
-            -10 +
-            mouseX * 18;
-
-    }
-);
-
-
-/* Smooth interpolation */
-
-function animateScene() {
-
-    currentX +=
-        (targetX - currentX) *
-        0.055;
-
-
-    currentY +=
-        (targetY - currentY) *
-        0.055;
-
-
+if (scene) {
     scene.style.transform =
-        `rotateX(${currentY}deg)
-         rotateY(${currentX}deg)`;
-
-
-    requestAnimationFrame(
-        animateScene
-    );
-
+        "rotateX(7deg) rotateY(-10deg)";
 }
-
-
-animateScene();
 
 
 /* =========================================================
@@ -5790,6 +6053,13 @@ document
         ".tilt"
     )
     .forEach(card => {
+
+        if (
+            window.matchMedia("(hover: none)").matches ||
+            window.innerWidth < 900
+        ) {
+            return;
+        }
 
 
         card.addEventListener(
