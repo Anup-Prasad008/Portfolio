@@ -3880,7 +3880,23 @@ body.night .holo {
     }
 
 }
+.profile-image {
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+    object-position: center bottom;
 
+    display: block;
+
+    filter:
+        drop-shadow(
+            0 20px 20px
+            rgba(0,0,0,0.20)
+        );
+
+    transition:
+        opacity 0.3s ease;
+}
 </style>
 </head>
 
@@ -4166,41 +4182,19 @@ body.night .holo {
 
                     <!-- PHOTO -->
 
-                    <div
-                        class="photo-box"
-                        id="photoBox"
-                    >
+                <div class="photo-box" id="photoBox">
 
-                        <div class="avatar">
+    <img
+        src="assets/profile.png"
+        alt="Anup Prasad"
+        class="profile-image"
+    >
 
+    <div class="avatar-note">
+        FRONTEND · AI · AUTHOR
+    </div>
 
-                            <div class="hair"></div>
-
-                            <div class="head"></div>
-
-                            <div class="glasses"></div>
-
-                            <div class="arm-left"></div>
-
-                            <div class="arm-right"></div>
-
-                            <div class="body"></div>
-
-                            <div class="shirt"></div>
-
-
-                        </div>
-
-
-                        <div class="avatar-note">
-
-                            FRONTEND · AI · AUTHOR
-
-                        </div>
-
-
-                    </div>
-
+</div>
 
                     <div class="holo-bottom">
 
