@@ -873,6 +873,22 @@ body.night .hero {
 }
 
 
+
+.socials a svg,
+.social-row a svg {
+    width: 19px;
+    height: 19px;
+    display: block;
+    fill: currentColor;
+    stroke: currentColor;
+    flex: 0 0 auto;
+}
+
+.socials a.book-icon svg {
+    width: 18px;
+    height: 18px;
+}
+
 .socials a:hover {
 
     transform:
@@ -4284,6 +4300,494 @@ body.night .holo {
     }
 }
 
+
+/* =========================================================
+   RESPONSIVE FINAL FIT
+   Fluid layout for phones, tablets and desktop screens.
+========================================================= */
+
+html,
+body {
+    width: 100%;
+    max-width: 100%;
+    overflow-x: hidden;
+}
+
+.container,
+.hero-grid,
+.two-col,
+.contact-grid,
+.footer-grid,
+.skill-grid,
+.project-grid {
+    min-width: 0;
+}
+
+img,
+video,
+svg,
+canvas {
+    max-width: 100%;
+}
+
+.hero-grid > *,
+.two-col > *,
+.contact-grid > *,
+.footer-grid > *,
+.skill-grid > *,
+.project-grid > * {
+    min-width: 0;
+}
+
+.hero h1,
+.about-card h2,
+.text-content h2,
+.section-head h2,
+.contact-copy h2,
+.skill-card h3,
+.project-body h3,
+.timeline-card h3,
+.footer-brand h3 {
+    overflow-wrap: anywhere;
+    word-break: normal;
+}
+
+.hero .description,
+.section-head > p,
+.about-card p,
+.text-content > p:not(.kicker),
+.skill-card p,
+.project-body p,
+.timeline-card p,
+.contact-copy > p,
+.detail,
+.footer-brand p,
+.form small {
+    overflow-wrap: anywhere;
+}
+
+@media (max-width: 1100px) {
+    .container {
+        width: min(calc(100% - 56px), 1000px);
+    }
+
+    .hero-grid {
+        grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
+        gap: clamp(28px, 5vw, 55px);
+    }
+
+    .scene-wrap {
+        width: 100%;
+        height: clamp(450px, 55vw, 620px);
+    }
+
+    .scene {
+        width: min(100%, 520px);
+    }
+}
+
+@media (max-width: 980px) {
+    .container {
+        width: min(calc(100% - 48px), 920px);
+    }
+
+    .hero {
+        min-height: auto;
+    }
+
+    .hero-grid {
+        grid-template-columns: 1fr;
+        gap: 18px;
+    }
+
+    .scene-wrap {
+        order: -1;
+        height: clamp(410px, 58vw, 540px);
+    }
+
+    .scene {
+        width: min(520px, 90vw);
+    }
+
+    .two-col,
+    .contact-grid {
+        grid-template-columns: 1fr;
+        gap: 35px;
+    }
+
+    .skill-grid,
+    .project-grid {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+
+    .hero .description,
+    .section-head > p,
+    .about-card p,
+    .text-content > p:not(.kicker),
+    .skill-card p,
+    .project-body p,
+    .timeline-card p,
+    .contact-copy > p,
+    .footer-brand p {
+        text-align: justify;
+        text-justify: inter-word;
+    }
+}
+
+@media (max-width: 680px) {
+    .container {
+        width: calc(100% - 24px);
+        max-width: none;
+    }
+
+    .nav-inner {
+        width: 100%;
+        gap: 8px;
+    }
+
+    .logo {
+        min-width: 0;
+        font-size: clamp(1rem, 5vw, 1.3rem);
+        letter-spacing: -0.8px;
+        overflow: hidden;
+        text-overflow: ellipsis;
+    }
+
+    .nav-actions {
+        flex-shrink: 0;
+    }
+
+    .theme-btn,
+    .menu-btn {
+        width: 40px;
+        height: 40px;
+        flex: 0 0 40px;
+    }
+
+    .nav-links {
+        left: 12px;
+        right: 12px;
+        width: auto;
+        border: 1px solid var(--line);
+        border-top: 0;
+        border-radius: 0 0 16px 16px;
+    }
+
+    .hero {
+        padding: 94px 0 44px;
+    }
+
+    .hero-grid {
+        gap: 2px;
+    }
+
+    .scene-wrap {
+        width: 100%;
+        height: clamp(295px, 96vw, 410px);
+        overflow: hidden;
+    }
+
+    .scene {
+        width: min(92vw, 380px);
+        max-width: 100%;
+    }
+
+    .holo {
+        width: clamp(165px, 60%, 230px);
+        max-width: 230px;
+    }
+
+    .holo-top,
+    .holo-bottom {
+        left: clamp(9px, 3vw, 16px);
+        right: clamp(9px, 3vw, 16px);
+        white-space: nowrap;
+    }
+
+    .holo-bottom span {
+        white-space: nowrap;
+    }
+
+    .hero h1 {
+        max-width: 100%;
+        margin-inline: auto;
+        font-size: clamp(2rem, 12vw, 3.1rem);
+        line-height: .98;
+        letter-spacing: -1.8px;
+        text-align: center;
+    }
+
+    .hero-greeting,
+    .hero .role {
+        text-align: center;
+    }
+
+    .hero .description,
+    .section-head > p,
+    .about-card p,
+    .text-content > p:not(.kicker),
+    .skill-card p,
+    .project-body p,
+    .timeline-card p,
+    .contact-copy > p,
+    .footer-brand p {
+        text-align: justify;
+        text-justify: inter-word;
+        hyphens: auto;
+    }
+
+    .hero-buttons {
+        flex-direction: column;
+        width: 100%;
+    }
+
+    .btn {
+        width: 100%;
+        min-height: 46px;
+    }
+
+    .socials {
+        justify-content: center;
+        flex-wrap: wrap;
+    }
+
+    .section {
+        padding: clamp(52px, 12vw, 75px) 0;
+    }
+
+    .about-card,
+    .form,
+    .timeline-card,
+    .project-body,
+    .fact {
+        padding: clamp(17px, 5vw, 24px);
+    }
+
+    .about-card,
+    .project-card,
+    .skill-card,
+    .form,
+    .timeline-card {
+        width: 100%;
+    }
+
+    .about-card h2,
+    .text-content h2,
+    .section-head h2,
+    .contact-copy h2 {
+        font-size: clamp(1.95rem, 10vw, 2.55rem);
+        line-height: 1.08;
+    }
+
+    .facts,
+    .skill-grid,
+    .project-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .visual {
+        height: clamp(165px, 50vw, 210px);
+    }
+
+    .timeline {
+        width: 100%;
+    }
+
+    .timeline-item {
+        padding-left: 40px;
+    }
+
+    .contact-grid {
+        gap: 28px;
+    }
+
+    .footer-grid {
+        grid-template-columns: 1fr;
+        gap: 26px;
+    }
+
+    .newsletter {
+        width: 100%;
+    }
+
+    .newsletter input {
+        min-width: 0;
+        width: 100%;
+    }
+}
+
+@media (max-width: 420px) {
+    .container {
+        width: calc(100% - 20px);
+    }
+
+    .hero {
+        padding-top: 88px;
+    }
+
+    .scene-wrap {
+        height: clamp(275px, 92vw, 345px);
+    }
+
+    .scene {
+        width: min(90vw, 330px);
+    }
+
+    .holo {
+        width: clamp(150px, 59%, 200px);
+    }
+
+    .hero .role {
+        font-size: .94rem;
+    }
+
+    .hero .description,
+    .section-head > p,
+    .about-card p,
+    .text-content > p:not(.kicker),
+    .skill-card p,
+    .project-body p,
+    .timeline-card p,
+    .contact-copy > p,
+    .footer-brand p {
+        font-size: .88rem;
+        line-height: 1.72;
+    }
+
+    .form {
+        padding: 17px;
+    }
+
+    .timeline-item {
+        padding-left: 34px;
+    }
+
+    .timeline::before {
+        left: 11px;
+    }
+
+    .circle {
+        left: 3px;
+    }
+}
+
+@media (max-width: 360px) {
+    .container {
+        width: calc(100% - 16px);
+    }
+
+    .hero {
+        padding-bottom: 34px;
+    }
+
+    .hero h1 {
+        font-size: clamp(1.9rem, 12vw, 2.35rem);
+    }
+
+    .scene-wrap {
+        height: 270px;
+    }
+
+    .scene {
+        width: 88vw;
+    }
+
+    .holo {
+        width: min(58%, 178px);
+    }
+
+    .holo-top,
+    .holo-bottom {
+        font-size: .46rem;
+        letter-spacing: .8px;
+    }
+
+    .holo-bottom {
+        gap: 3px;
+    }
+
+    .holo-bottom span {
+        padding: 4px 5px;
+    }
+}
+
+@media (hover: none), (pointer: coarse) {
+    .skill-card:hover,
+    .project-card:hover,
+    .hover-zoom:hover,
+    .btn.primary:hover,
+    .btn.ghost:hover,
+    .socials a:hover,
+    .footer-brand:hover,
+    .detail:hover,
+    .social-row a:hover {
+        transform: none;
+    }
+}
+
+
+
+/* FINAL MOBILE SIDE SPACING
+   Keeps a comfortable left/right gutter on phones.
+*/
+@media (max-width: 680px) {
+    .container {
+        width: calc(100% - 36px);
+        max-width: none;
+    }
+}
+
+@media (max-width: 420px) {
+    .container {
+        width: calc(100% - 32px);
+    }
+}
+
+@media (max-width: 360px) {
+    .container {
+        width: calc(100% - 28px);
+    }
+}
+
+
+/* =========================================================
+   MOBILE TEXT GUTTERS
+   Gives headings and paragraphs outside cards a clean
+   left/right breathing space on every phone size.
+========================================================= */
+@media (max-width: 680px) {
+    .hero-grid > .reveal:first-child,
+    .text-content,
+    .section-head,
+    .contact-copy {
+        padding-inline: clamp(8px, 2.5vw, 14px);
+    }
+
+    .section-head {
+        box-sizing: border-box;
+    }
+
+    .hero-grid > .reveal:first-child {
+        width: 100%;
+    }
+
+    .hero .description,
+    .text-content > p:not(.kicker),
+    .section-head > p,
+    .contact-copy > p {
+        max-width: 100%;
+    }
+}
+
+@media (max-width: 420px) {
+    .hero-grid > .reveal:first-child,
+    .text-content,
+    .section-head,
+    .contact-copy {
+        padding-inline: 6px;
+    }
+}
+
 </style>
 </head>
 
@@ -4502,24 +5006,40 @@ body.night .holo {
                 <a
                     href="https://github.com/AloneHacker-008"
                     target="_blank"
+                    rel="noopener noreferrer"
+                    aria-label="GitHub"
+                    title="GitHub"
                 >
-                    GH
+                    <svg viewBox="0 0 24 24" aria-hidden="true">
+                        <path d="M12 .5C5.65.5.5 5.65.5 12c0 5.08 3.29 9.39 7.85 10.91.57.1.78-.25.78-.55v-2.02c-3.19.69-3.86-1.35-3.86-1.35-.52-1.32-1.27-1.67-1.27-1.67-1.04-.71.08-.7.08-.7 1.15.08 1.75 1.18 1.75 1.18 1.02 1.74 2.67 1.24 3.32.95.1-.74.4-1.24.73-1.53-2.55-.29-5.23-1.28-5.23-5.69 0-1.26.45-2.29 1.18-3.1-.12-.29-.51-1.47.11-3.06 0 0 .96-.31 3.15 1.18a10.9 10.9 0 0 1 5.73 0c2.19-1.49 3.15-1.18 3.15-1.18.62 1.59.23 2.77.11 3.06.73.81 1.18 1.84 1.18 3.1 0 4.42-2.69 5.4-5.25 5.68.41.36.78 1.08.78 2.18v3.23c0 .3.2.65.79.55A11.52 11.52 0 0 0 23.5 12C23.5 5.65 18.35.5 12 .5Z"/>
+                    </svg>
                 </a>
 
 
                 <a
                     href="https://www.linkedin.com/in/anup-prasad-73aaa23a1/"
                     target="_blank"
+                    rel="noopener noreferrer"
+                    aria-label="LinkedIn"
+                    title="LinkedIn"
                 >
-                    in
+                    <svg viewBox="0 0 24 24" aria-hidden="true">
+                        <path d="M6.94 8.5H3.56V20h3.38V8.5ZM5.25 3A1.97 1.97 0 1 0 5.25 6.94 1.97 1.97 0 0 0 5.25 3ZM20.44 13.09c0-3.47-1.85-5.09-4.33-5.09-1.99 0-2.87 1.09-3.37 1.86V8.5H9.36V20h3.38v-5.69c0-1.5.29-2.95 2.14-2.95 1.82 0 1.85 1.71 1.85 3.05V20h3.38v-6.91Z"/>
+                    </svg>
                 </a>
 
 
                 <a
                     href="https://anup-prasad008.github.io/Book/"
                     target="_blank"
+                    rel="noopener noreferrer"
+                    aria-label="Book website"
+                    title="Books"
+                    class="book-icon"
                 >
-                    ✦
+                    <svg viewBox="0 0 24 24" aria-hidden="true">
+                        <path d="M5 4.5A2.5 2.5 0 0 1 7.5 2H20v16H7.5A2.5 2.5 0 0 0 5 20.5V4.5Zm0 16A2.5 2.5 0 0 1 7.5 18H20v3H7.5A2.5 2.5 0 0 0 5 23V20.5Zm3-15A1 1 0 0 0 7 6.5v8A1 1 0 0 0 8 15.5h9V5.5H8Z"/>
+                    </svg>
                 </a>
 
 
@@ -5807,32 +6327,52 @@ body.night .holo {
                     <a
                         href="https://www.facebook.com/"
                         target="_blank"
+                        rel="noopener noreferrer"
+                        aria-label="Facebook"
+                        title="Facebook"
                     >
-                        f
+                        <svg viewBox="0 0 24 24" aria-hidden="true">
+                            <path d="M13.5 21v-8h2.75l.41-3h-3.16V8.08c0-.87.24-1.47 1.49-1.47h1.79V3.93c-.31-.04-1.39-.13-2.64-.13-2.62 0-4.42 1.6-4.42 4.54V10H7v3h2.72v8h3.78Z"/>
+                        </svg>
                     </a>
 
 
                     <a
                         href="https://x.com/"
                         target="_blank"
+                        rel="noopener noreferrer"
+                        aria-label="X"
+                        title="X"
                     >
-                        𝕏
+                        <svg viewBox="0 0 24 24" aria-hidden="true">
+                            <path d="M18.9 2H22l-6.76 7.73L23.2 22h-6.25l-4.9-6.4L6.45 22H3.34l7.22-8.25L2.8 2h6.41l4.43 5.87L18.9 2Zm-1.1 17.93h1.73L8.28 3.95H6.42L17.8 19.93Z"/>
+                        </svg>
                     </a>
 
 
                     <a
                         href="https://www.linkedin.com/in/anup-prasad-73aaa23a1/"
                         target="_blank"
+                        rel="noopener noreferrer"
+                        aria-label="LinkedIn"
+                        title="LinkedIn"
                     >
-                        in
+                        <svg viewBox="0 0 24 24" aria-hidden="true">
+                            <path d="M6.94 8.5H3.56V20h3.38V8.5ZM5.25 3A1.97 1.97 0 1 0 5.25 6.94 1.97 1.97 0 0 0 5.25 3ZM20.44 13.09c0-3.47-1.85-5.09-4.33-5.09-1.99 0-2.87 1.09-3.37 1.86V8.5H9.36V20h3.38v-5.69c0-1.5.29-2.95 2.14-2.95 1.82 0 1.85 1.71 1.85 3.05V20h3.38v-6.91Z"/>
+                        </svg>
                     </a>
 
 
                     <a
                         href="https://www.instagram.com/anup_prasad008/"
                         target="_blank"
+                        rel="noopener noreferrer"
+                        aria-label="Instagram"
+                        title="Instagram"
                     >
-                        ◎
+                        <svg viewBox="0 0 24 24" aria-hidden="true">
+                            <path d="M7.5 2h9A5.5 5.5 0 0 1 22 7.5v9a5.5 5.5 0 0 1-5.5 5.5h-9A5.5 5.5 0 0 1 2 16.5v-9A5.5 5.5 0 0 1 7.5 2Zm0 1.8A3.7 3.7 0 0 0 3.8 7.5v9a3.7 3.7 0 0 0 3.7 3.7h9a3.7 3.7 0 0 0 3.7-3.7v-9a3.7 3.7 0 0 0-3.7-3.7h-9Zm4.5 3.1A5.1 5.1 0 1 1 6.9 12a5.1 5.1 0 0 1 5.1-5.1Zm0 1.8A3.3 3.3 0 1 0 15.3 12a3.3 3.3 0 0 0-3.3-3.3Zm5.35-2.16a1.19 1.19 0 1 1 0 2.38 1.19 1.19 0 0 1 0-2.38Z"/>
+                        </svg>
                     </a>
 
 
