@@ -1174,182 +1174,139 @@
         ========================================================= */
 
         .hero-right {
-            position:
-                relative;
-
-            display:
-                flex;
-
-            align-items:
-                center;
-
-            justify-content:
-                center;
-
-            min-width:
-                0;
+            position: relative;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            min-width: 0;
         }
 
         .hero-visual-wrapper {
-            position:
-                relative;
-
-            width:
-                100%;
-
-            max-width:
-                580px;
-
-            height:
-                clamp(
-                    450px,
-                    52vw,
-                    600px
-                );
-
-            display:
-                flex;
-
-            align-items:
-                center;
-
-            justify-content:
-                center;
+            position: relative;
+            width: 100%;
+            max-width: 580px;
+            height: clamp(450px, 52vw, 600px);
+            display: flex;
+            align-items: center;
+            justify-content: center;
         }
 
+        /* =========================================================
+           PRIMARY IMAGE BACKDROP — REFERENCE STYLE
+           Teal geometric/organic panel behind the portrait.
+        ========================================================= */
+
         .organic-wave-container {
-            position:
-                absolute;
+            position: absolute;
+            top: 1%;
+            right: -1%;
+            width: 93%;
+            height: 96%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            z-index: 1;
+            pointer-events: none;
+            filter: drop-shadow(0 22px 50px rgba(19,138,131,0.20));
+        }
 
-            inset:
-                0;
-
-            width:
-                100%;
-
-            height:
-                100%;
-
-            display:
-                flex;
-
-            align-items:
-                center;
-
-            justify-content:
-                center;
-
-            z-index:
-                1;
-
-            pointer-events:
-                none;
+        .organic-wave-container::before {
+            content: "";
+            position: absolute;
+            inset: 7% 2% 4% 15%;
+            border-radius: 42% 2% 2% 38%;
+            background: radial-gradient(
+                circle at 70% 42%,
+                rgba(43,229,213,0.32),
+                rgba(19,138,131,0.16) 48%,
+                transparent 74%
+            );
+            filter: blur(22px);
+            z-index: -1;
         }
 
         .hero-blob-svg {
-            width:
-                100%;
-
-            height:
-                100%;
-
-            overflow:
-                visible;
-
-            filter:
-                drop-shadow(
-                    0 20px 45px
-                    rgba(19,138,131,0.22)
-                );
+            width: 100%;
+            height: 100%;
+            overflow: visible;
+            display: block;
         }
 
-        body.night .hero-blob-svg {
-            filter:
-                drop-shadow(
-                    0 20px 50px
-                    rgba(37,200,187,0.28)
-                );
+        body.night .organic-wave-container {
+            filter: drop-shadow(0 24px 60px rgba(37,200,187,0.28));
         }
 
         .blob-contour-path {
-            animation:
-                pulseDashed 4s
-                ease-in-out
-                infinite alternate;
+            animation: pulseDashed 4s ease-in-out infinite alternate;
         }
 
         @keyframes pulseDashed {
-
             0% {
-                opacity:
-                    0.5;
-
-                stroke-dashoffset:
-                    0;
+                opacity: 0.5;
+                stroke-dashoffset: 0;
             }
-
             100% {
-                opacity:
-                    0.9;
-
-                stroke-dashoffset:
-                    24;
+                opacity: 0.9;
+                stroke-dashoffset: 24;
             }
         }
 
-        .person-photo-frame {
-            position:
-                relative;
+.person-photo-frame {
+    position: relative;
+    z-index: 2;
 
-            z-index:
-                2;
+    width: 360px;
+    height: 360px;
 
-            width:
-                90%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
 
-            height:
-                96%;
+    border-radius: 50%;
+    padding: 8px;
 
-            display:
-                flex;
+    background:
+        linear-gradient(
+            135deg,
+            var(--cyan) 0%,
+            var(--primary) 50%,
+            var(--primary-dark) 100%
+        );
 
-            align-items:
-                flex-end;
+    box-shadow:
+        0 18px 45px rgba(19, 138, 131, 0.25),
+        0 0 0 10px rgba(43, 217, 204, 0.08);
 
-            justify-content:
-                center;
+    overflow: hidden;
+    pointer-events: none;
+}
 
-            pointer-events:
-                none;
-        }
+.person-photo-frame::before {
+    content: "";
+    position: absolute;
+    inset: 5px;
 
-        .hero-person-cutout {
-            max-width:
-                100%;
+    border-radius: 50%;
+    background: var(--surface-solid);
 
-            max-height:
-                100%;
+    z-index: 0;
+}
 
-            object-fit:
-                contain;
+.hero-person-cutout {
+    position: relative;
+    z-index: 1;
 
-            object-position:
-                bottom center;
+    width: 100%;
+    height: 100%;
 
-            filter:
-                drop-shadow(
-                    0 15px 25px
-                    rgba(0,0,0,0.18)
-                );
+    border-radius: 50%;
 
-            animation:
-                gentleBreathe 6s
-                ease-in-out
-                infinite;
+    object-fit: cover;
+      object-position: 50% 18%;
 
-            pointer-events:
-                auto;
-        }
+    filter:
+        drop-shadow(0 12px 22px rgba(0, 0, 0, 0.18));
+}
 
         @keyframes gentleBreathe {
 
@@ -3534,6 +3491,12 @@
                     0 auto;
             }
 
+            .organic-wave-container {
+                width: 95%;
+                height: 96%;
+                right: 0;
+            }
+
             .two-col,
             .contact-grid {
                 grid-template-columns:
@@ -3716,6 +3679,13 @@
 
                 height:
                     420px;
+            }
+
+            .organic-wave-container {
+                width: 96%;
+                height: 96%;
+                top: 1%;
+                right: 0;
             }
 
             .floating-social-card {
@@ -4028,7 +3998,158 @@
                     none !important;
             }
         }
+.success-toast {
+    position: fixed;
 
+    top: 22px;
+    right: 22px;
+    left: auto;
+
+    transform: translateY(-130px);
+
+    width: min(420px, calc(100% - 32px));
+
+    padding: 15px 17px 11px;
+
+    background: var(--surface-solid);
+
+    color: var(--text);
+
+    border: 1px solid var(--line);
+
+    border-radius: 14px;
+
+    box-shadow:
+        0 18px 45px rgba(16, 24, 40, 0.16);
+
+    z-index: 99999;
+
+    opacity: 0;
+
+    pointer-events: none;
+
+    transition:
+        transform 0.35s cubic-bezier(0.16, 1, 0.3, 1),
+        opacity 0.25s ease;
+
+    overflow: hidden;
+}
+
+.success-toast.show {
+    transform: translateY(0);
+    opacity: 1;
+    pointer-events: auto;
+}
+
+.success-toast-content {
+    display: flex;
+    align-items: center;
+
+    gap: 11px;
+}
+
+.success-toast-icon {
+    width: 28px;
+    height: 28px;
+
+    display: grid;
+    place-items: center;
+
+    flex: 0 0 28px;
+
+    border-radius: 50%;
+
+    background: #e8f8f1;
+
+    color: #16a05d;
+
+    font-size: 15px;
+    font-weight: 900;
+}
+
+.success-toast-message {
+    flex: 1;
+
+    font-size: 0.92rem;
+    font-weight: 800;
+
+    color: var(--text);
+}
+
+.success-toast-close {
+    width: 28px;
+    height: 28px;
+
+    display: grid;
+    place-items: center;
+
+    flex: 0 0 28px;
+
+    border-radius: 8px;
+
+    color: var(--muted);
+
+    font-size: 22px;
+    line-height: 1;
+
+    transition:
+        color 0.2s ease,
+        background 0.2s ease;
+}
+
+.success-toast-close:hover {
+    color: var(--text);
+
+    background: var(--bg-soft);
+}
+
+/* Green line: right → left */
+.success-toast-progress {
+    position: absolute;
+
+    left: 0;
+    right: 0;
+    bottom: 0;
+
+    height: 3px;
+
+    background: #20b76b;
+
+    transform: scaleX(1);
+    transform-origin: left center;
+}
+
+.success-toast.show .success-toast-progress {
+    animation: toastProgress 3s linear forwards;
+}
+
+@keyframes toastProgress {
+    from {
+        transform: scaleX(1);
+    }
+
+    to {
+        transform: scaleX(0);
+    }
+}
+
+/* Night mode */
+body.night .success-toast {
+    box-shadow:
+        0 20px 55px rgba(0, 0, 0, 0.5);
+}
+
+body.night .success-toast-icon {
+    background: rgba(32, 183, 107, 0.14);
+    color: #35d98a;
+}
+
+@media (max-width: 600px) {
+    .success-toast {
+        top: 14px;
+        width: calc(100% - 24px);
+    }
+}
     </style>
 </head>
 
@@ -4403,104 +4524,109 @@
                     <div class="hero-visual-wrapper">
 
                         <div class="organic-wave-container">
+                        <svg
+                            class="hero-blob-svg"
+                            viewBox="0 0 560 600"
+                            fill="none"
+                            xmlns="http://www.w3.org/2000/svg"
+                            preserveAspectRatio="xMidYMid meet"
+                            aria-hidden="true">
 
-                            <svg
-                                class="hero-blob-svg"
-                                viewBox="0 0 650 680"
-                                fill="none"
-                                xmlns="http://www.w3.org/2000/svg"
-                                preserveAspectRatio="xMidYMid meet">
+                            <defs>
 
-                                <defs>
+                                <linearGradient
+                                    id="heroTealGrad"
+                                    x1="12%"
+                                    y1="8%"
+                                    x2="92%"
+                                    y2="94%">
 
-                                    <linearGradient
-                                        id="heroTealGrad"
-                                        x1="15%"
-                                        y1="10%"
-                                        x2="90%"
-                                        y2="95%">
+                                    <stop offset="0%" stop-color="var(--cyan)" />
+                                    <stop offset="48%" stop-color="var(--primary)" />
+                                    <stop offset="100%" stop-color="var(--primary-dark)" />
 
-                                        <stop
-                                            offset="0%"
-                                            stop-color="var(--cyan)" />
+                                </linearGradient>
 
-                                        <stop
-                                            offset="42%"
-                                            stop-color="var(--primary)" />
+                                <linearGradient
+                                    id="contourGrad"
+                                    x1="0%"
+                                    y1="0%"
+                                    x2="100%"
+                                    y2="100%">
 
-                                        <stop
-                                            offset="100%"
-                                            stop-color="var(--primary-dark)" />
+                                    <stop
+                                        offset="0%"
+                                        stop-color="var(--cyan)"
+                                        stop-opacity="0.92" />
 
-                                    </linearGradient>
+                                    <stop
+                                        offset="100%"
+                                        stop-color="var(--primary)"
+                                        stop-opacity="0.28" />
 
+                                </linearGradient>
 
-                                    <linearGradient
-                                        id="contourGrad"
-                                        x1="0%"
-                                        y1="0%"
-                                        x2="100%"
-                                        y2="100%">
+                                <filter
+                                    id="blobShadow"
+                                    x="-20%"
+                                    y="-20%"
+                                    width="150%"
+                                    height="150%">
 
-                                        <stop
-                                            offset="0%"
-                                            stop-color="var(--cyan)"
-                                            stop-opacity="0.8" />
+                                    <feDropShadow
+                                        dx="-8"
+                                        dy="20"
+                                        stdDeviation="24"
+                                        flood-color="var(--primary)"
+                                        flood-opacity="0.30" />
 
-                                        <stop
-                                            offset="100%"
-                                            stop-color="var(--primary)"
-                                            stop-opacity="0.2" />
+                                </filter>
 
-                                    </linearGradient>
+                            </defs>
 
+                            <!-- Outer contour line -->
+                            <path
+                                class="blob-contour-path"
+                                d="
+                                    M 548 38
+                                    C 392 40, 270 72, 224 154
+                                    C 182 228, 158 310, 173 382
+                                    C 194 484, 286 544, 548 568
+                                "
+                                stroke="url(#contourGrad)"
+                                stroke-width="2.3"
+                                stroke-linecap="round"
+                                stroke-dasharray="7 8"
+                                fill="none" />
 
-                                    <filter
-                                        id="blobShadow"
-                                        x="-15%"
-                                        y="-15%"
-                                        width="130%"
-                                        height="130%">
+                            <!-- Main teal backdrop -->
+                            <path
+                                d="
+                                    M 560 24
+                                    H 292
+                                    C 226 30, 181 74, 157 138
+                                    C 132 207, 106 298, 116 364
+                                    C 132 468, 224 536, 560 576
+                                    Z
+                                "
+                                fill="url(#heroTealGrad)"
+                                filter="url(#blobShadow)" />
 
-                                        <feDropShadow
-                                            dx="-8"
-                                            dy="18"
-                                            stdDeviation="30"
-                                            flood-color="var(--primary)"
-                                            flood-opacity="0.28" />
+                            <!-- Subtle inner contour -->
+                            <path
+                                d="
+                                    M 545 44
+                                    H 303
+                                    C 239 51, 201 86, 180 146
+                                    C 158 209, 139 285, 145 351
+                                    C 155 449, 245 505, 545 550
+                                "
+                                stroke="rgba(255,255,255,0.16)"
+                                stroke-width="1.2"
+                                stroke-linecap="round"
+                                fill="none" />
 
-                                    </filter>
-
-                                </defs>
-
-
-                                <path
-                                    class="blob-contour-path"
-                                    d="
-                                        M 640 10
-                                        C 490 15, 340 70, 310 170
-                                        C 275 270, 240 375, 275 480
-                                        C 305 570, 420 635, 640 665
-                                    "
-                                    stroke="url(#contourGrad)"
-                                    stroke-width="2.5"
-                                    stroke-dasharray="8 8"
-                                    fill="none" />
-
-
-                                <path
-                                    d="
-                                        M 650 0
-                                        L 480 0
-                                        C 395 10, 350 70, 335 150
-                                        C 310 270, 260 365, 290 470
-                                        C 320 570, 435 635, 650 670
-                                        Z
-                                    "
-                                    fill="url(#heroTealGrad)"
-                                    filter="url(#blobShadow)" />
-
-                            </svg>
+                        </svg>
 
                         </div>
 
@@ -4508,7 +4634,7 @@
                         <div class="person-photo-frame">
 
                             <img
-                                src="assets/ChatGPT Image Sep 25, 2026, 10_53_18 PM.png"
+                                src="ChatGPT Image Sep 27, 2026, 11_08_48 PM.png"
                                 alt="Anup Prasad - Frontend Developer & Creative UI/UX Designer"
                                 class="hero-person-cutout"
                                 loading="eager">
@@ -4687,7 +4813,7 @@
                             <div class="about-person-frame">
 
                                 <img
-                                    src="assets/ChatGPT Image Sep 26, 2026, 08_57_54 AM.png"
+                                    src="ChatGPT Image Sep 27, 2026, 11_08_48 PM.png"
                                     alt="Anup Prasad About Me Illustration"
                                     class="about-person-cutout"
                                     loading="lazy">
@@ -5279,7 +5405,7 @@
 
                         <!-- GitHub -->
                         <a
-                            href="https://github.com/AloneHacker-008"
+                            href="https://github.com/Anup-Prasad008"
                             target="_blank"
                             rel="noopener noreferrer"
                             aria-label="Explore GitHub">
@@ -6196,6 +6322,45 @@ const formStatus =
 const formReplyTo =
     document.getElementById("formReplyTo");
 
+    const successToast =
+    document.getElementById("successToast");
+
+const successToastClose =
+    document.getElementById("successToastClose");
+
+let successToastTimer = null;
+
+function showSuccessToast() {
+
+    if (!successToast) return;
+
+    successToast.classList.remove("show");
+
+    // Animation ko restart karta hai
+    void successToast.offsetWidth;
+
+    successToast.classList.add("show");
+
+    clearTimeout(successToastTimer);
+
+    successToastTimer = setTimeout(() => {
+        hideSuccessToast();
+    }, 3000);
+}
+
+function hideSuccessToast() {
+
+    if (!successToast) return;
+
+    successToast.classList.remove("show");
+
+    clearTimeout(successToastTimer);
+}
+
+successToastClose?.addEventListener(
+    "click",
+    hideSuccessToast
+);
 
 if (contactForm) {
 
@@ -6358,7 +6523,7 @@ if (contactForm) {
                         "Message sent successfully ✓";
 
                 }
-
+                showSuccessToast();
 
                 if (contactSubmit) {
 
@@ -6528,6 +6693,25 @@ if (contactForm) {
         );
 
     </script>
+<div id="successToast" class="success-toast" role="status" aria-live="polite">
+    <div class="success-toast-content">
+        <span class="success-toast-icon">✓</span>
 
+        <span class="success-toast-message">
+            Message Sent
+        </span>
+
+        <button
+            type="button"
+            class="success-toast-close"
+            id="successToastClose"
+            aria-label="Close notification"
+        >
+            ×
+        </button>
+    </div>
+
+    <div class="success-toast-progress"></div>
+</div>
 </body>
 </html>
