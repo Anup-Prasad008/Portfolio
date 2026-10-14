@@ -2548,6 +2548,211 @@
 
 
         /* =========================================================
+           FUTURE GOALS — added section, aligned with current theme
+        ========================================================= */
+        .future-goals-section {
+            background:
+                radial-gradient(circle at 8% 15%, rgba(43,217,204,0.07), transparent 30%),
+                radial-gradient(circle at 92% 85%, rgba(19,138,131,0.07), transparent 32%),
+                var(--bg);
+        }
+
+        .future-goals-grid {
+            display: grid;
+            grid-template-columns: repeat(3, minmax(0, 1fr));
+            gap: 24px;
+            align-items: stretch;
+        }
+
+        .future-goal-card {
+            position: relative;
+            min-height: 100%;
+            padding: 30px;
+            overflow: hidden;
+            border: 1px solid var(--line);
+            border-radius: var(--radius-lg);
+            background: var(--surface);
+            box-shadow: var(--shadow-sm);
+            transition: transform .3s ease, border-color .3s ease, box-shadow .3s ease, background .3s ease;
+        }
+
+        .future-goal-card::after {
+            content: "";
+            position: absolute;
+            top: -46px;
+            right: -42px;
+            width: 130px;
+            height: 130px;
+            border-radius: 50%;
+            border: 1px solid rgba(19,138,131,.16);
+            box-shadow: 0 0 0 16px rgba(19,138,131,.035), 0 0 0 32px rgba(19,138,131,.025);
+            pointer-events: none;
+        }
+
+        .future-goal-card:hover {
+            transform: translateY(-6px);
+            border-color: var(--primary);
+            background: var(--surface-solid);
+            box-shadow: var(--shadow-card), 0 0 0 1px rgba(19,138,131,.12);
+        }
+
+        body.night .future-goal-card:hover {
+            box-shadow: 0 0 0 1px var(--primary), 0 0 28px rgba(37,200,187,.13), var(--shadow-card);
+        }
+
+        .future-goal-top {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 12px;
+            margin-bottom: 24px;
+            position: relative;
+            z-index: 1;
+        }
+
+        .future-goal-icon {
+            width: 54px;
+            height: 54px;
+            border-radius: 16px;
+            display: grid;
+            place-items: center;
+            color: var(--primary);
+            background: linear-gradient(135deg, rgba(19,138,131,.14), rgba(43,217,204,.12));
+            border: 1px solid rgba(19,138,131,.16);
+        }
+
+        .future-goal-icon svg {
+            width: 27px;
+            height: 27px;
+            display: block;
+            fill: none;
+            stroke: currentColor;
+            stroke-width: 1.8;
+            stroke-linecap: round;
+            stroke-linejoin: round;
+        }
+
+        .future-goal-period {
+            display: inline-flex;
+            align-items: center;
+            padding: 6px 10px;
+            border-radius: var(--radius-pill);
+            background: var(--primary-light);
+            color: var(--primary);
+            border: 1px solid rgba(19,138,131,.13);
+            font-size: .7rem;
+            font-weight: 800;
+            letter-spacing: .7px;
+            text-transform: uppercase;
+        }
+
+        .future-goal-card h3 {
+            position: relative;
+            z-index: 1;
+            font-size: 1.34rem;
+            font-weight: 800;
+            letter-spacing: -.35px;
+            margin-bottom: 12px;
+        }
+
+        .future-goal-card > p {
+            position: relative;
+            z-index: 1;
+            color: var(--muted);
+            font-size: .92rem;
+            line-height: 1.75;
+            margin-bottom: 20px;
+        }
+
+        .future-goal-list {
+            position: relative;
+            z-index: 1;
+            list-style: none;
+            display: grid;
+            gap: 11px;
+            margin-top: 16px;
+        }
+
+        .future-goal-list li {
+            position: relative;
+            padding-left: 23px;
+            color: var(--muted);
+            font-size: .86rem;
+            line-height: 1.55;
+        }
+
+        .future-goal-list li::before {
+            content: "✓";
+            position: absolute;
+            left: 0;
+            top: 1px;
+            width: 16px;
+            height: 16px;
+            display: grid;
+            place-items: center;
+            border-radius: 50%;
+            background: rgba(19,138,131,.12);
+            color: var(--primary);
+            font-size: .68rem;
+            font-weight: 900;
+        }
+
+        .future-vision {
+            margin-top: 26px;
+            display: grid;
+            grid-template-columns: auto minmax(0, 1fr) auto;
+            align-items: center;
+            gap: 20px;
+            padding: 25px 28px;
+            border-radius: var(--radius-lg);
+            border: 1px solid rgba(19,138,131,.25);
+            background: linear-gradient(115deg, rgba(19,138,131,.12), rgba(43,217,204,.045));
+        }
+
+        .future-vision-mark {
+            width: 48px;
+            height: 48px;
+            display: grid;
+            place-items: center;
+            border-radius: 14px;
+            color: var(--primary);
+            background: var(--surface-solid);
+            border: 1px solid var(--line);
+            font-size: 1.35rem;
+            font-weight: 900;
+        }
+
+        .future-vision h3 {
+            margin-bottom: 5px;
+            font-size: 1.05rem;
+            font-weight: 800;
+        }
+
+        .future-vision p {
+            color: var(--muted);
+            font-size: .88rem;
+            line-height: 1.65;
+        }
+
+        .future-vision-arrow {
+            color: var(--primary);
+            font-size: 1.7rem;
+            font-weight: 700;
+        }
+
+        @media (max-width: 1000px) {
+            .future-goals-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+            .future-goal-card:last-child { grid-column: 1 / -1; }
+        }
+
+        @media (max-width: 640px) {
+            .future-goals-grid { grid-template-columns: 1fr; gap: 16px; }
+            .future-goal-card:last-child { grid-column: auto; }
+            .future-goal-card { padding: 24px; }
+            .future-vision { grid-template-columns: auto minmax(0, 1fr); gap: 14px; padding: 20px; }
+            .future-vision-arrow { display: none; }
+        }
+        /* =========================================================
            CONTACT
         ========================================================= */
 
@@ -4593,7 +4798,7 @@ body.night .why-card:hover .meta-lbl {
                     class="nav-link">
                     Journey
                 </a>
-
+                    <a href="#future-goals" class="nav-link">Future Goals</a>
                 <a
                     href="#contact"
                     class="nav-link">
@@ -5600,7 +5805,78 @@ body.night .why-card:hover .meta-lbl {
             </div>
 
         </section>
+           <!-- ======================================================
+             FUTURE GOALS
+        ====================================================== -->
 
+        <section class="section future-goals-section" id="future-goals">
+            <div class="container">
+                <div class="section-head reveal">
+                    <div class="kicker" style="justify-content:center">FUTURE GOALS</div>
+                    <h2>Focused today. <span>Building for tomorrow.</span></h2>
+                    <p>My goals are to keep learning, build real-world skills, and turn thoughtful ideas into useful digital products.</p>
+                </div>
+
+                <div class="future-goals-grid">
+                    <article class="future-goal-card hover-surface reveal">
+                        <div class="future-goal-top">
+                            <span class="future-goal-icon" aria-hidden="true">
+                                <svg viewBox="0 0 24 24"><rect x="3" y="4" width="18" height="13" rx="2"/><path d="M8 21h8M12 17v4M7 9l3 3 6-5"/></svg>
+                            </span>
+                            <span class="future-goal-period">Short term</span>
+                        </div>
+                        <h3>Become a Front-End Developer</h3>
+                        <p>Strengthen my foundations and create polished, responsive websites that are accessible, fast, and easy to use.</p>
+                        <ul class="future-goal-list">
+                            <li>Improve HTML, CSS, JavaScript and responsive UI</li>
+                            <li>Build and document practical portfolio projects</li>
+                            <li>Prepare for real-world roles and collaboration</li>
+                        </ul>
+                    </article>
+
+                    <article class="future-goal-card hover-surface reveal">
+                        <div class="future-goal-top">
+                            <span class="future-goal-icon" aria-hidden="true">
+                                <svg viewBox="0 0 24 24"><rect x="3" y="4" width="18" height="16" rx="2"/><path d="M8 9 5.5 12 8 15M13 15h5M13 9h5"/><path d="M7 2v2M17 2v2"/></svg>
+                            </span>
+                            <span class="future-goal-period">Medium term</span>
+                        </div>
+                        <h3>Grow into Full-Stack Development</h3>
+                        <p>Learn how complete applications work—from the interface users see to the services and data behind it.</p>
+                        <ul class="future-goal-list">
+                            <li>Understand APIs, backend fundamentals and databases</li>
+                            <li>Practice authentication, testing and deployment</li>
+                            <li>Build complete projects from idea to launch</li>
+                        </ul>
+                    </article>
+
+                    <article class="future-goal-card hover-surface reveal">
+                        <div class="future-goal-top">
+                            <span class="future-goal-icon" aria-hidden="true">
+                                <svg viewBox="0 0 24 24"><path d="M12 3 4 6.5V12c0 4.5 3.1 7.3 8 9 4.9-1.7 8-4.5 8-9V6.5L12 3Z"/><path d="M9 12h6M12 9v6"/><path d="M16.5 4.9 19 2.5"/></svg>
+                            </span>
+                            <span class="future-goal-period">Long term</span>
+                        </div>
+                        <h3>Build Useful Technology Products</h3>
+                        <p>Bring together web development, AI and cybersecurity knowledge to create products that solve genuine problems.</p>
+                        <ul class="future-goal-list">
+                            <li>Explore AI and cybersecurity responsibly</li>
+                            <li>Develop useful, thoughtful digital experiences</li>
+                            <li>Share knowledge through writing and projects</li>
+                        </ul>
+                    </article>
+                </div>
+
+                <div class="future-vision reveal">
+                    <div class="future-vision-mark" aria-hidden="true">↗</div>
+                    <div>
+                        <h3>My long-term direction</h3>
+                        <p>BCA student → Front-End Developer → Full-Stack Developer → AI &amp; Cybersecurity → Technology / Product Builder</p>
+                    </div>
+                    <span class="future-vision-arrow" aria-hidden="true">→</span>
+                </div>
+            </div>
+        </section>
 
         <!-- ======================================================
              CONTACT
